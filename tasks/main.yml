@@ -1,0 +1,22 @@
+---
+- name: Update apt cache
+  apt: update_cache=yes
+
+- name: Install Java 1.7
+  apt: pkg=openjdk-7-jdk state=present
+
+- name: Install Tomcat 7
+  apt: pkg=tomcat7 state=present
+
+- name: Install Tomcat 7 Admin Interface
+  apt: pkg=tomcat7-admin state=present
+
+- name: Enable Tomcat 7 remote debugging
+  template: src=tomcat7 dest=/etc/default/tomcat7
+
+- name: Configure Tomcat 7 Users
+  template: src=tomcat-users.xml dest=/etc/tomcat7
+  notify: tomcat7-restart
+
+
+
