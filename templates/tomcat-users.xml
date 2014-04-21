@@ -20,6 +20,6 @@
 -->
 <tomcat-users>
 
-  <user username="{{ admin_username }}" password="{{ admin_password }}" roles="manager-gui" />
+  <user username="{{ tomcat_admin_username }}" password="{{ tomcat_admin_password }}" roles="manager-gui" />
 
 </tomcat-users>
